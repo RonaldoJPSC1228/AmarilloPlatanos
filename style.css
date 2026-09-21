@@ -1,69 +1,415 @@
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
 body {
+    width: 100%;
+    max-width: 100%;
     margin: 0;
     padding: 0;
+
+    /* Evita scroll horizontal */
+    overflow-x: hidden;
+}
+
+body {
     background-image: url('omomen-flores.png');
-    background-repeat: repeat; /* Repetir vertical y horizontalmente */
-    background-size: 247px 190px; /* Tamaño de la imagen de fondo */
+    background-repeat: repeat;
+    background-size: 247px 190px;
+
     font-family: Arial, sans-serif;
 }
 
+
+/* =========================================================
+   CONTENEDOR
+   ========================================================= */
+
 .container {
     display: flex;
+
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
 }
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
 
 .card {
     width: 40%;
+    max-width: 100%;
+
     height: auto;
+
     background-color: rgba(221, 228, 18, 0.821);
-    padding: 20px; /* Aumentar el relleno */
+
+    padding: 20px;
+
     border-radius: 10px;
+
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 100%; /* Aumentar el ancho máximo de la tarjeta */
-    text-align: center; /* Centrar el contenido */
+
+    text-align: center;
+
+    /* Evita que padding + width provoquen desbordamiento */
+    box-sizing: border-box;
 }
+
+
+/* =========================================================
+   VIDEO
+   ========================================================= */
 
 .video-wrapper {
+    width: 100%;
     max-width: 100%;
-    height: 300px; /* Para mantener la proporción del video */
-    text-align: center; /* Centrar el video horizontalmente */
+
+    height: 300px;
+
+    text-align: center;
+
+    overflow: hidden;
 }
 
-iframe {
+.video-wrapper iframe {
+    display: block;
+
     width: 100%;
-    height: 100%; /* Para que el video ocupe todo el espacio disponible */
+    max-width: 100%;
+
+    height: 100%;
+
+    border: 0;
 }
+
+
+/* =========================================================
+   TEXTOS
+   ========================================================= */
 
 .text {
+    width: 100%;
+    max-width: 100%;
+
     text-align: center;
-    font-size: 24px; /* Tamaño de fuente */
-    color: #333; /* Color del texto */
-    font-weight: bold; /* Negrita */
-    margin-top: 20px; /* Espacio superior */
-    padding: 20px; /* Relleno interior */
+
+    font-size: 24px;
+
+    color: #333;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
     background-color: rgba(228, 219, 58, 0.985);
+
     border-radius: 5px;
+
+    /* Evita que textos largos generen overflow */
+    overflow-wrap: break-word;
 }
 
-/* Agrega estos estilos al final de tu archivo style.css */
+
+/* =========================================================
+   BOTÓN
+   ========================================================= */
+
 .button {
     display: inline-block;
+
+    max-width: 100%;
+
     padding: 10px 20px;
-    background-color: #004cff; /* Color de fondo dorado */
-    color: #08d7fb; /* Color de texto blanco */
+
+    background-color: #004cff;
+
+    color: #08d7fb;
+
     font-size: 18px;
+
     font-weight: bold;
+
     text-align: center;
+
     text-transform: uppercase;
+
     border: 2px solid #000;
+
     border-radius: 5px;
+
     cursor: pointer;
+
     transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #0d00ff; /* Color de fondo dorado más claro al pasar el mouse */
+    background-color: #0d00ff;
 }
 
+
+/* =========================================================
+   IMAGEN OCULTA
+   ========================================================= */
+
+.imagen-oculta {
+    width: 100%;
+    max-width: 100%;
+
+    overflow: hidden;
+
+    text-align: center;
+}
+
+.imagen-oculta img {
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TABLETS GRANDES
+   iPad / Galaxy Tab / Redmi Pad
+   ========================================================= */
+
+@media screen and (max-width: 1200px) {
+
+    body {
+        background-size: 210px 162px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .card {
+        width: 60%;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 1200 / 700;
+    }
+
+    .video-wrapper iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    body {
+        background-size: 180px 138px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .card {
+        width: 75%;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 1200 / 700;
+    }
+
+    .video-wrapper iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .text {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   TABLETS PEQUEÑAS
+   / MÓVILES GRANDES
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        background-size: 150px 115px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 1200 / 700;
+    }
+
+    .video-wrapper iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .text {
+        font-size: 20px;
+    }
+
+    .text p {
+        margin: 10px 0;
+    }
+}
+
+
+/* =========================================================
+   CELULARES
+   ========================================================= */
+
+@media screen and (max-width: 576px) {
+
+    body {
+        background-size: 120px 92px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 15px;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        max-width: 100%;
+
+        height: auto;
+
+        aspect-ratio: 1200 / 700;
+    }
+
+    .video-wrapper iframe {
+        width: 100%;
+        max-width: 100%;
+
+        height: 100%;
+    }
+
+    .text {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 18px;
+
+        padding: 15px;
+    }
+
+    .button {
+        max-width: 100%;
+    }
+
+    .imagen-oculta img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+   ========================================================= */
+
+@media screen and (max-width: 400px) {
+
+    body {
+        background-size: 100px 77px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 10px;
+    }
+
+    .text {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 16px;
+
+        padding: 10px;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        max-width: 100%;
+
+        height: auto;
+
+        aspect-ratio: 1200 / 700;
+    }
+
+    .video-wrapper iframe {
+        width: 100%;
+        max-width: 100%;
+
+        height: 100%;
+    }
+
+    .imagen-oculta img {
+        max-width: 100%;
+        height: auto;
+    }
+}
